@@ -5,7 +5,8 @@ $(function () {
         var newDevour = $(this).data("newdevour");
 
         var newDevourState = {
-            devoured: newDevour
+            devoured: newDevour,
+            id: id
         };
 
         // Send the PUT request.
@@ -14,7 +15,7 @@ $(function () {
             data: newDevourState
         }).then(
             function () {
-                console.log("changed devour to", newDevour);
+
                 // Reload the page to get the updated list
                 location.reload();
             }
@@ -26,7 +27,7 @@ $(function () {
         event.preventDefault();
 
         var newBurger = {
-            name: $("#ca").val().trim(),
+            burger_name: $("#ca").val().trim(),
             devoured: $("[name=devoured]:checked").val().trim()
         };
 
@@ -36,7 +37,7 @@ $(function () {
             data: newBurger
         }).then(
             function () {
-                console.log("created new burger");
+
                 // Reload the page to get the updated list
                 location.reload();
             }
